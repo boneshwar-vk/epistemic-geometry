@@ -1,0 +1,59 @@
+{
+  "sweep": [
+    {
+      "rho": 0.0,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 596,
+      "auroc_trust_residual": 0.4963,
+      "auroc_confidence_alone": 0.4818,
+      "trust_minus_confidence": 0.0146
+    },
+    {
+      "rho": 0.3,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 308,
+      "auroc_trust_residual": 0.9676,
+      "auroc_confidence_alone": 0.4037,
+      "trust_minus_confidence": 0.5639
+    },
+    {
+      "rho": 0.5,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 160,
+      "auroc_trust_residual": 0.9914,
+      "auroc_confidence_alone": 0.3659,
+      "trust_minus_confidence": 0.6255
+    },
+    {
+      "rho": 0.7,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 27,
+      "auroc_trust_residual": 0.9991,
+      "auroc_confidence_alone": 0.2364,
+      "trust_minus_confidence": 0.7626
+    },
+    {
+      "rho": 0.9,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 0,
+      "auroc_trust_residual": 0.5,
+      "auroc_confidence_alone": 0.5,
+      "trust_minus_confidence": 0.0
+    },
+    {
+      "rho": 1.0,
+      "angle_recovery_up_to_isometry": 0.9987,
+      "n_confidently_wrong_in_slice": 0,
+      "auroc_trust_residual": 0.5,
+      "auroc_confidence_alone": 0.5,
+      "trust_minus_confidence": 0.0
+    }
+  ],
+  "gate_MPU0_go": true,
+  "verdict": [
+    "ANGLE recovery up to isometry > 0.95 across rho: PASS",
+    "TRUST RESIDUAL beats confidence in the partial-coupling regime (rho 0.3-0.7): PASS",
+    "Expected degradation documented: rho->0 (confidence uninformative) and rho->1 (truth and confidence entangled -> few/no confidently-wrong cases) = the paper's \u00a714.1 limitation.",
+    "GATE MPU-0: GO -> the truth-vs-confidence metric is sound; proceed to the model."
+  ]
+}
