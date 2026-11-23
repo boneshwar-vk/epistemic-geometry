@@ -43,3 +43,7 @@ venv/
 
 # Keep the Phase 0 result (small, in-hand) even though *.json-like outputs are otherwise transient
 !experiments/phase0_synthetic/phase0_results.json
+
+# model weights (large / licensed)
+data/weights/*
+!data/weights/.gitkeep
