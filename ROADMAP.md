@@ -21,9 +21,12 @@ be added.
 
 - **`data/`** — cache per-layer activations from a protein language model (and, for the probe-only track, a
   co-folding model); compute physical ground truth by deterministic code: backbone dihedral angles (φ, ψ) and
-  relative solvent accessibility from experimental structures (via DSSP/mdtraj), and laboratory binding
-  constants for the binding probe. Includes the frozen, hashed train/test splits (sequence-clustered and
-  time-based) so results are leakage-controlled.
+  relative solvent accessibility from experimental structures (via DSSP/mdtraj), and — for the probe-only
+  auditing track — interaction and stability quantities: interface / protein–protein-interaction features,
+  binding free energy (ΔG / Kd) and mutational ΔΔG, fold stability, and on-target vs off-target labels.
+  Includes the frozen, hashed train/test splits (sequence-clustered and time-based) so results are
+  leakage-controlled. A recurring deliverable is a **per-layer "which layers encode X" map** for each
+  quantity — the layer-resolved sense of "where structure lives".
 - **`dictionaries/`** — a scalar top-k sparse autoencoder (baseline), a Euclidean block, and fixed circular
   (S¹) and torus (T²) blocks. The curved blocks are a *control*, not a contribution; everything is compared at a
   matched information budget.
@@ -64,10 +67,12 @@ be added.
 
 ## Responsible use
 
-The protein (structural-geometry) track is the core. The binding-affinity track is **probe-only** and is framed
-as auditing / calibration — it reads internal representations and compares them against laboratory values and
-the model's own confidence score, with **no steering toward stronger binding** and no generative-design
-pipeline, on benign complexes only.
+The protein (structural-geometry) track is the core. The interaction / stability track — interface and PPI
+features, binding thermodynamics (ΔG / Kd, ΔΔG), fold stability, and on-target vs off-target specificity — is
+**probe-only and localization-first**, framed as auditing / calibration: it reads internal representations to
+map which layers encode these quantities and compares them against laboratory values and the model's own
+confidence score, with **no steering** (toward stronger binding, altered specificity, or anything else) and no
+generative-design pipeline, on benign complexes only.
 
 ## Following along
 
